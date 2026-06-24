@@ -40,7 +40,7 @@ type entry struct {
 // It blocks until ctx is canceled or the watch channel closes. Callers
 // typically launch this with `go ttl.Run(ctx, backend)`.
 func Run(ctx context.Context, b server.Backend) {
-	queue := workqueue.NewTypedDelayingQueue[string]()
+	queue := workqueue.NewDelayingQueue()
 	var mu sync.RWMutex
 	store := make(map[string]*entry)
 
@@ -96,7 +96,7 @@ func Run(ctx context.Context, b server.Backend) {
 // seed pages through every leased key at the current revision and adds it
 // to the workqueue. Pagination is anchored at the revision returned by the
 // first List so subsequent pages are stable.
-func seed(ctx context.Context, b server.Backend, mu *sync.RWMutex, queue workqueue.TypedDelayingInterface[string], store map[string]*entry) (int64, error) {
+func seed(ctx context.Context, b server.Backend, mu *sync.RWMutex, queue workqueue.DelayingInterface, store map[string]*entry) (int64, error) {
 	rev, kvs, err := b.List(ctx, "/", "0", listPageSize, 0, true)
 	if err != nil {
 		return rev, err
@@ -122,8 +122,9 @@ func seed(ctx context.Context, b server.Backend, mu *sync.RWMutex, queue workque
 
 // handle processes one queue item. Returns false when the queue has shut
 // down, true otherwise so the caller can keep looping.
-func handle(ctx context.Context, b server.Backend, mu *sync.RWMutex, queue workqueue.TypedDelayingInterface[string], store map[string]*entry) bool {
-	key, shutdown := queue.Get()
+func handle(ctx context.Context, b server.Backend, mu *sync.RWMutex, queue workqueue.DelayingInterface, store map[string]*entry) bool {
+	item, shutdown := queue.Get()
+	key := item.(string)
 	if shutdown {
 		logrus.Info("TTL events work queue has shut down")
 		return false
