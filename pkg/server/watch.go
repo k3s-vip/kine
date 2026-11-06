@@ -41,7 +41,7 @@ func (s *KVServerBridge) Watch(ws etcdserverpb.Watch_WatchServer) error {
 
 	logrus.Tracef("WATCH SERVER CREATE server=%d", w.id)
 
-	go wait.PollUntilContextCancel(ws.Context(), s.limited.notifyInterval, false, func(ctx context.Context) (bool, error) {
+	go wait.PollUntilWithContext(ws.Context(), s.limited.notifyInterval, func(ctx context.Context) (bool, error) {
 		w.ProgressIfSynced(ctx)
 		return false, nil
 	})
