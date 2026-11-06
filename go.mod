@@ -2,16 +2,6 @@ module github.com/k3s-io/kine
 
 go 1.26.10
 
-replace (
-	go.etcd.io/bbolt => go.etcd.io/bbolt v1.4.3
-	go.etcd.io/etcd/api/v3 => go.etcd.io/etcd/api/v3 v3.6.13
-	go.etcd.io/etcd/client/pkg/v3 => go.etcd.io/etcd/client/pkg/v3 v3.6.13
-	go.etcd.io/etcd/client/v3 => go.etcd.io/etcd/client/v3 v3.6.13
-	go.etcd.io/etcd/pkg/v3 => go.etcd.io/etcd/pkg/v3 v3.6.13
-	go.etcd.io/etcd/server/v3 => go.etcd.io/etcd/server/v3 v3.6.13
-	go.etcd.io/raft/v3 => go.etcd.io/raft/v3 v3.6.0
-)
-
 require (
 	github.com/Rican7/retry v0.3.1
 	github.com/go-sql-driver/mysql v1.10.1
@@ -27,18 +17,18 @@ require (
 	github.com/prometheus/client_golang v1.25.0
 	github.com/shengdoushi/base58 v1.0.0
 	github.com/sirupsen/logrus v1.10.2
-	github.com/t4db/t4 v1.1.16
+	github.com/t4db/t4 v1.0.6
 	github.com/tidwall/btree v1.8.2
 	github.com/urfave/cli/v2 v2.27.7
-	go.etcd.io/etcd/api/v3 v3.7.2
-	go.etcd.io/etcd/client/pkg/v3 v3.7.2
-	go.etcd.io/etcd/client/v3 v3.7.2
-	go.etcd.io/etcd/server/v3 v3.6.13
+	go.etcd.io/etcd/api/v3 v3.6.14
+	go.etcd.io/etcd/client/pkg/v3 v3.6.14
+	go.etcd.io/etcd/client/v3 v3.6.14
+	go.etcd.io/etcd/server/v3 v3.6.14
 	go.uber.org/zap v1.28.0
 	google.golang.org/grpc v1.85.0
-	k8s.io/apimachinery v0.35.4
-	k8s.io/apiserver v0.35.4
-	k8s.io/client-go v0.35.4
+	k8s.io/apimachinery v0.34.13
+	k8s.io/apiserver v0.34.13
+	k8s.io/client-go v0.34.13
 	modernc.org/sqlite v1.61.0
 )
 
@@ -67,20 +57,9 @@ require (
 	github.com/getsentry/sentry-go v0.27.0 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-openapi/jsonpointer v1.0.0 // indirect
-	github.com/go-openapi/jsonreference v1.0.0 // indirect
-	github.com/go-openapi/swag v0.28.0 // indirect
-	github.com/go-openapi/swag/cmdutils v0.28.0 // indirect
-	github.com/go-openapi/swag/conv v0.28.0 // indirect
-	github.com/go-openapi/swag/fileutils v0.28.0 // indirect
-	github.com/go-openapi/swag/jsonutils v0.28.0 // indirect
-	github.com/go-openapi/swag/loading v0.28.0 // indirect
-	github.com/go-openapi/swag/mangling v0.28.0 // indirect
-	github.com/go-openapi/swag/netutils v0.28.0 // indirect
-	github.com/go-openapi/swag/pools v0.28.0 // indirect
-	github.com/go-openapi/swag/stringutils v0.28.0 // indirect
-	github.com/go-openapi/swag/typeutils v0.28.0 // indirect
-	github.com/go-openapi/swag/yamlutils v0.28.0 // indirect
+	github.com/go-openapi/jsonpointer v0.21.0 // indirect
+	github.com/go-openapi/jsonreference v0.20.2 // indirect
+	github.com/go-openapi/swag v0.23.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
@@ -91,7 +70,7 @@ require (
 	github.com/gorilla/websocket v1.5.4-0.20250319132907-e064f32e3674 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus v1.1.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.3.3 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.29.0 // indirect; swag@v0.23.0
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.3 // indirect
@@ -134,13 +113,13 @@ require (
 	github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
 	go.etcd.io/bbolt v1.4.3 // indirect
-	go.etcd.io/etcd/pkg/v3 v3.6.13 // indirect
+	go.etcd.io/etcd/pkg/v3 v3.6.14 // indirect
 	go.etcd.io/raft/v3 v3.6.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.71.0 // indirect
 	go.opentelemetry.io/otel v1.46.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.46.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.46.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.45.0 // indirect; grpc-gateway@v2.29.0
 	go.opentelemetry.io/otel/metric v1.46.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.46.0 // indirect
 	go.opentelemetry.io/otel/trace v1.46.0 // indirect
@@ -165,10 +144,10 @@ require (
 	gopkg.in/ini.v1 v1.67.3 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/api v0.35.4 // indirect
-	k8s.io/component-base v0.35.4 // indirect
+	k8s.io/api v0.34.13 // indirect
+	k8s.io/component-base v0.34.13 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
-	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912 // indirect
+	k8s.io/kube-openapi v0.0.0-20260501214126-88bf13f351a2 // indirect; swag@v0.23.0
 	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4 // indirect
 	modernc.org/libc v1.79.0 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
